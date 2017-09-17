@@ -48,6 +48,22 @@ public class Login {
 		login_portal.setBounds(100, 100, 300, 150);
 		login_portal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		login_portal.getContentPane().setLayout(null);
+
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InstantiationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IllegalAccessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		JLabel lbl_login = new JLabel("Please Enter Your Username");
 		lbl_login.setFont(new Font("Arial", Font.BOLD, 12));
@@ -100,8 +116,9 @@ public class Login {
 						connection.close();
 						statement.close();
 						set.close();
-						
-						LCMSmain.main(null);
+
+						LCMSmain window = new LCMSmain();
+						window.frmLesChampsManagement.setVisible(true);
 						
 					}
 					else 
